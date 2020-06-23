@@ -1,4 +1,4 @@
-package com.practice.demo;
+package com.practice.demo.pojos;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -53,6 +53,16 @@ public class Book {
 
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", authors=" + authors +
+                '}';
     }
 
     @Override
