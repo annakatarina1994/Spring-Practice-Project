@@ -2,8 +2,10 @@ package com.practice.demo.bootstrap;
 
 import com.practice.demo.pojos.Author;
 import com.practice.demo.pojos.Book;
+import com.practice.demo.pojos.Publisher;
 import com.practice.demo.repositories.AuthorRepository;
 import com.practice.demo.repositories.BookRepository;
+import com.practice.demo.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -11,10 +13,12 @@ import org.springframework.stereotype.Component;
 public class BootStrapData implements CommandLineRunner {
     private final AuthorRepository authorRepo;
     private final BookRepository bookRepo;
+    private final PublisherRepository publisherRepo;
 
-    public BootStrapData(AuthorRepository authorRepo, BookRepository bookRepo) {
+    public BootStrapData(AuthorRepository authorRepo, BookRepository bookRepo, PublisherRepository publisherRepo) {
         this.authorRepo = authorRepo;
         this.bookRepo = bookRepo;
+        this.publisherRepo = publisherRepo;
     }
 
     @Override
@@ -34,7 +38,11 @@ public class BootStrapData implements CommandLineRunner {
         authorRepo.save(author2);
         bookRepo.save(book2);
 
+        Publisher publisher1 = new Publisher("Publisher", "123 Fake Street", "Flavortown", "OH", "43212");
+        publisherRepo.save(publisher1);
+
         System.out.println("Started with BootStrap");
         System.out.println("Number of books: " + bookRepo.count());
+        System.out.println(publisher1);
     }
 }
