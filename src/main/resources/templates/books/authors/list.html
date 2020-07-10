@@ -4,3 +4,19 @@
     <meta charset="UTF-8"/>
     <title>Spring Practice</title>
 </head>
+<body>
+<h1>Author List</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    <tr th:each="author : ${authors}">
+        <td th:text="${author.id}">1234</td>
+        <td th:text="${author.firstName}">Angel</td>
+        <td th:text="${author.lastName}">Garcia</td>
+    </tr>
+</table>
+</body>
+</html>
