@@ -49,6 +49,12 @@ public class BootStrapData implements CommandLineRunner {
         book1.setPublisher(publisher1);
         publisher1.getBooks().add(book1);
 
+        book2.setPublisher((publisher1));
+        publisher1.getBooks().add(book2);
+
+        publisherRepo.save(publisher1);
+
+
 
         System.out.println("Started with BootStrap");
         System.out.println("Number of books: " + bookRepo.count());
